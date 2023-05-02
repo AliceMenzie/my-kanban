@@ -1,10 +1,11 @@
 import supabase from "@/app/(utils)/supabaseClient"
-
 import Link from "next/link"
+import Image from "next/image"
 import { faSortDown, faSortUp } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { parseISO, format } from "date-fns"
 import { Snippet } from "@/app/(components)/Snippet"
+import SortIcon from "../../public/assets/sort.svg"
 
 // TODO: move to utils
 function formatDate(dateString: any) {
@@ -29,7 +30,6 @@ const getData = async () => {
 
 const Page = async () => {
   const { data, error } = await getData()
-  console.log("THIS IS DATA", data)
   if (error) {
     ;<div> there was an error </div>
   }
@@ -39,21 +39,7 @@ const Page = async () => {
         <h2 className="font-semibold text-4xl">Boards</h2>
         <div className="text-gray-200 font-normal text-4xl">Asc</div>
         <div className="flex-col inline-flex">
-          {/* TODO: remove font awesome package use google icons */}
-          <span className="inline">
-            <FontAwesomeIcon
-              icon={faSortUp}
-              viewBox="0 -310 320 512"
-              className="text-[15px] text-gray-200"
-            />
-          </span>
-          <span className="inline">
-            <FontAwesomeIcon
-              icon={faSortDown}
-              className="text-[15px] text-gray-200"
-              viewBox="0 310 320 512"
-            />
-          </span>
+          <Image alt="sort" src={SortIcon} width={30} height={30} />
         </div>
       </header>
       {/* TODO: change section to main?  */}
@@ -99,6 +85,11 @@ const Page = async () => {
                       border="pink"
                       title="Author"
                       subtext={board.users.username}
+                    />
+                    <Snippet
+                      border="orange"
+                      title="Last Updated"
+                      subtext="not sure yet"
                     />
                   </div>
 

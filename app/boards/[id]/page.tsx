@@ -22,7 +22,6 @@ const BoardDetails = async ({ params }: { params: { id: string } }) => {
       <p>page Board Page</p>
       {/* @ts-expect-error Async Server Component */}
       <Board id={id} />
-      <Link href="/dashboard"> Go Home </Link>
     </div>
   )
 }
