@@ -1,8 +1,6 @@
 import supabase from "@/app/(utils)/supabaseClient"
 import Link from "next/link"
 import Image from "next/image"
-import { faSortDown, faSortUp } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { parseISO, format } from "date-fns"
 import { Snippet } from "@/app/(components)/Snippet"
 import SortIcon from "../../public/assets/sort.svg"
