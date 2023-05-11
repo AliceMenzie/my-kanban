@@ -1,13 +1,24 @@
-const Task = () => {
-  return (
-    <div className="border rounded-md">
-      <h3>name: </h3>
+"use client"
 
-      <p>created: </p>
-      <p>status: </p>
-      <p>assigned to: </p>
-      <article>description </article>
+import {
+  handleDragEnter,
+  handleDragLeave,
+  handleDragOver,
+  handleDragStart,
+  handleDrop,
+} from "@/app/(utils)/utils"
+
+const Task = ({ task, column, columns, setColumns }: any) => {
+  return (
+    <div
+      className="border border-emerald-400"
+      draggable
+      onDragStart={(e) => handleDragStart(e, task)}
+      onDragEnter={handleDragEnter}
+      onDragLeave={handleDragLeave}
+    >
+      {task.content}
     </div>
-  );
-};
-export default Task;
+  )
+}
+export default Task
