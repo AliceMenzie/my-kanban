@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Board } from "../../(components)/board/Board"
+import { BoardContainer } from "../../(components)/board/BoardContainer"
 import supabase from "@/app/(utils)/supabaseClient"
 
 const getData = async () => {
@@ -21,7 +21,7 @@ const BoardDetails = async ({ params }: { params: { id: string } }) => {
     <div>
       <p>page Board Page</p>
       {/* @ts-expect-error Async Server Component */}
-      <Board id={id} />
+      <BoardContainer id={id} />
     </div>
   )
 }
